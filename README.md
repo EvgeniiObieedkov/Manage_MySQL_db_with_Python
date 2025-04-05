@@ -2,7 +2,7 @@
 
 This project demonstrates how to manage a MySQL database using Python. It covers basic operations like connecting to the database, creating tables, inserting data, querying data, and performing CRUD (Create, Read, Update, Delete) operations. The project uses SQLAlchemy for database interactions and Pandas for data manipulation.
 
-Key Steps in the Project:
+Key Steps in the Project:  
 📊 Extracted Data from Excel Sheets
 Loaded data from Excel sheets into DataFrames using Pandas.
 
