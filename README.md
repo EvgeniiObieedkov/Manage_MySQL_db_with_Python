@@ -1,25 +1,30 @@
-#### Manage_MySQL_db_with_Python
+### Manage MySQL DB with Python — Data Pipeline Project
 
-This project demonstrates how to manage a MySQL database using Python. It covers basic operations like connecting to the database, creating tables, inserting data, querying data, and performing CRUD (Create, Read, Update, Delete) operations. The project uses SQLAlchemy for database interactions and Pandas for data manipulation.
+#### Project Type  
+**Python pipeline** for automated data extraction, transformation, and loading (ETL) into a **MySQL database**.
 
-Key Steps in the Project:  
-📊 Extracted Data from Excel Sheets
-Loaded data from Excel sheets into DataFrames using Pandas.
+#### Goal  
+To build a reusable script that loads Excel data, processes it, and populates a MySQL database with structured tables for analysis and querying.
 
-🔧 Processed the DataFrames
-Cleaned, transformed, and prepared the data for further use, ensuring proper formats and handling of missing values.
+#### Process  
 
-🗄️ Created a MySQL Database
-Created a MySQL database to store and manage the data programmatically.
+1. **Data Extraction**  
+   - Loaded three Excel sheets (`orders`, `customers`, `products`) into Pandas DataFrames using `pd.ExcelFile()`.
 
-📥 Inserted Data into the Database
-Added DataFrames into MySQL tables using SQLAlchemy.
+2. **Data Cleaning & Transformation**  
+   - Renamed columns to snake_case for consistency.  
+   - Trimmed unnecessary or empty fields (e.g., cleaned `orders` DataFrame to only include valid columns).  
+   - Replaced code values with human-readable names using dictionaries (e.g., `"Ara"` → `"Arabica"`).  
 
-🔍 Executed Test Queries
-Performed test queries to verify the correctness of the data and check the functionality of the database.
+3. **MySQL Setup**  
+   - Connected to MySQL via `mysql.connector` and `SQLAlchemy`.  
+   - Created a database (`coffee_db`) and replaced existing tables if needed.
 
-Technologies Used
-Python: Main programming language.
-MySQL: Relational database for storing data.
-SQLAlchemy: Python ORM (Object-Relational Mapping) for database interaction.
-Pandas: Library used for data manipulation and querying.
+4. **Data Loading**  
+   - Used `DataFrame.to_sql()` to load processed DataFrames into MySQL tables.
+
+5. **Verification via SQL Queries**  
+   - Checked data integrity with test queries:  
+     - View sample records.  
+     - Identify missing email addresses.  
+     - Perform joined queries to get order info by coffee type and date.
